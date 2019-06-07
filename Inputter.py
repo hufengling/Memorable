@@ -49,7 +49,7 @@ def write_to_name():
 def write_to_name:
 
 def write_to_dailies:
-
+edit for github
 
 #create new entry and write to file by date (times from 4AM-3:59AM every day)
 #find names and write to files by name along with date
