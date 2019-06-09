@@ -16,6 +16,7 @@ N/A
 
 Free space:
 Met with @Lucy_Yuan and @Alex_Liu in chicago. grabbed some coffee. Talked about Alex living in new york. @Location:Alex_Liu:New York@ Talked about mitchell. @Partner:Lucy_Yuan:Mitchell_Sun@ @Location:Lucy_Yuan:Chicago@ @Birthday:Alex_Liu:1997-03-23@
+This is 2019-06-05
 
 ~~~
 @@@2019-06-06
@@ -65,7 +66,7 @@ How was your day?
 Left for china today. spent 13 hours on plane
 
 Rate your mood from 1-10
-4
+*delete
 
 What were three "highs"?
 finally watched ___ movie
@@ -77,6 +78,7 @@ spilled coffee on myself
 Free space:
 anoher entry for @Archit_Potharazu @Location:Archit_Potharazu:Chicago@
 talked to @Leah_Kim on KakaoTalk
+***What did you eat for dinner?
 
 ~~~
 @@@2019-06-10
@@ -96,5 +98,6 @@ all lows
 Free space:
 new entry for @Lucy_Yuan
 another for @Leah_Kim
+@Location:Archit_Potharazu:California@
 
 ~~~
