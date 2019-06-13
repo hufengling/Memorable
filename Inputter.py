@@ -1,22 +1,23 @@
 import datetime
 import subprocess
 
+path = "/Users/apotharazu/Documents/GitHub/Memorable"
 
 # starts the "write" sequence
 def write():
     if check_if_started():
-        open_file(fileName="today.txt")
+        open_file(fileName="/today.txt")
     else:
         parse_today()
         format_today()
         save_today()
         reset_today()
-        open_file(fileName="today.txt")
+        open_file(fileName="/today.txt")
 
 
 # checks if entry for current day was started
 def check_if_started():
-    today = open("/Users/hufengling/git/Memorable/today.txt", "r")
+    today = open(path + "/today.txt", "r")
     if today.readline() == "@@@" + get_date() + "\n":
         today.close()
         return True
@@ -27,17 +28,17 @@ def check_if_started():
 
 # opens today.txt in Sublime Text
 def open_file(fileName):
-    subprocess.call(['open', '-a', 'Sublime Text', "/Users/hufengling/git/Memorable/" + fileName])
+    subprocess.call(['open', '-a', 'Sublime Text', path + "/" + fileName])
 
 # parses information from today.txt
 def parse_today():
-    today = open("/Users/hufengling/git/Memorable/today.txt", "r")
+    today = open(path + "/today.txt", "r")
     totalLines = today.readlines().__len__()
     today.close()
 
     print("totalLines = " + str(totalLines))
     dq_line_indices = []
-    today = open("/Users/hufengling/git/Memorable/today.txt", "r")
+    today = open(path + "/today.txt", "r")
     today.readline() # read the "date" line in order to skip it in following loop so we don't have to analyze it
     for lineNumber in range(0, totalLines-1):
         line = today.readline()
@@ -51,7 +52,7 @@ def parse_today():
 # formats today.txt to be saved to main.txt (possibly unnecessary)
 def format_today():
     unformatted = True  # indicator if file was previously formatted
-    today = open("/Users/hufengling/git/Memorable/today.txt", "r+")
+    today = open(path + "/today.txt", "r+")
     for line in today:
         if line == "~~~\n":
             unformatted = False
@@ -63,8 +64,8 @@ def format_today():
 
 # saves today.txt to main.txt
 def save_today():
-    main = open("/Users/hufengling/git/Memorable/main.txt", "a")
-    today = open("/Users/hufengling/git/Memorable/today.txt", "r")
+    main = open(path + "/main.txt", "a")
+    today = open(path + "/today.txt", "r")
     for line in today:
         main.write(line)
     main.close()
@@ -73,7 +74,7 @@ def save_today():
 
 # resets today.txt to beginning-of-day status
 def reset_today():
-    today = open("/Users/hufengling/git/Memorable/today.txt", "w")
+    today = open(path + "/today.txt", "w")
     today.write("@@@" + get_date() + "\n")
     today.write(get_daily_questions())
     today.close()
@@ -81,7 +82,7 @@ def reset_today():
 # returns list of daily questions
 def get_daily_questions():
     questionsString = ""
-    dailyQuestions = open("/Users/hufengling/git/Memorable/daily_questions.txt", "r")
+    dailyQuestions = open(path + "/daily_questions.txt", "r")
     for line in dailyQuestions:
         questionsString += line
     dailyQuestions.close()
@@ -116,11 +117,11 @@ def process_at_sign(line, index):
 
 # process "*"
 def process_star_sign(dq_line_indices):
-    today = open("/Users/hufengling/git/Memorable/today.txt", "r")
+    today = open(path + "/today.txt", "r")
     dq_line_indices += [today.readlines().__len__() - 2] # adds final
     today.close()
 
-    today = open("/Users/hufengling/git/Memorable/today.txt", "r")
+    today = open(path + "/today.txt", "r")
     currentDate = today.readline()
     print(currentDate)
 
@@ -132,7 +133,7 @@ def process_star_sign(dq_line_indices):
         questionLine = reformat_question(questionLine)
         print(questionLine)
 
-        dq = open("/Users/hufengling/git/Memorable/Daily_Questions/" + questionLine, "a")
+        dq = open(path + "/Daily_Questions/" + questionLine, "a")
         dq.write(currentDate)
         for line in range(dq_line_indices[i] + 1, dq_line_indices[i + 1]):
             print(today.readline())
@@ -151,18 +152,18 @@ def tester():
     string = "hello"
     print(string[:4])
 
-parse_today()
-"""
+def parse_today():
+    """
 
-def write_to_name:
+    def write_to_name:
 
-def write_to_dailies:
-edit for github
+    def write_to_dailies:
+    edit for github
 
-#create new entry and write to file by date (times from 4AM-3:59AM every day)
-#find names and write to files by name along with date
-#ask for Dailies and write to Dailies file (highs, lows, overall, feelings)
-#for new friend, ask for birthday, location, and value of friendship
-#every year, ask for new location, and value of friendship as interactions come up
+    #create new entry and write to file by date (times from 4AM-3:59AM every day)
+    #find names and write to files by name along with date
+    #ask for Dailies and write to Dailies file (highs, lows, overall, feelings)
+    #for new friend, ask for birthday, location, and value of friendship
+    #every year, ask for new location, and value of friendship as interactions come up
 
-"""
+    """
