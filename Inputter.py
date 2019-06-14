@@ -1,5 +1,7 @@
 import datetime
 import subprocess
+
+path = "/Users/apotharazu/Documents/GitHub/Memorable/"
 import Parser
 
 # starts the "write" sequence
@@ -16,7 +18,7 @@ def write():
 
 # checks if entry for current day was started
 def is_started():
-    today = open("/Users/hufengling/git/Memorable/Data_Files/today.txt", "r")
+    today = open(path + "Data_Files/today.txt", "r")
     if today.readline() == "@@@" + get_date() + "\n":
         today.close()
         return True
@@ -26,7 +28,7 @@ def is_started():
 
 # opens today.txt in Sublime Text
 def open_file(fileName):
-    subprocess.call(['open', '-a', 'Sublime Text', "/Users/hufengling/git/Memorable/" + fileName])
+    subprocess.call(['open', '-a', 'Sublime Text', path + fileName])
 
 # delete temporary storage files
 def reset_temp_files():
@@ -35,7 +37,7 @@ def reset_temp_files():
 # formats today.txt to be saved to main.txt (possibly unnecessary)
 def format_today():
     unformatted = True  # indicator if file was previously formatted
-    today = open("/Users/hufengling/git/Memorable/Data_Files/today.txt", "r+")
+    today = open(path + "Data_Files/today.txt", "r+")
     for line in today:
         if line == "~~~\n":
             unformatted = False
@@ -46,8 +48,8 @@ def format_today():
 
 # saves today.txt to main.txt
 def save_today():
-    main = open("/Users/hufengling/git/Memorable/Data_Files/main.txt", "a")
-    today = open("/Users/hufengling/git/Memorable/Data_Files/today.txt", "r")
+    main = open(path + "Data_Files/main.txt", "a")
+    today = open(path + "Data_Files/today.txt", "r")
     for line in today:
         main.write(line)
     main.close()
@@ -55,7 +57,7 @@ def save_today():
 
 # resets today.txt to beginning-of-day status
 def reset_today():
-    today = open("/Users/hufengling/git/Memorable/Data_Files/today.txt", "w")
+    today = open(path + "Data_Files/today.txt", "w")
     today.write("@@@" + get_date() + "\n")
     today.write(get_daily_questions())
     today.close()
@@ -63,7 +65,7 @@ def reset_today():
 # returns list of daily questions
 def get_daily_questions():
     questionsString = ""
-    dailyQuestions = open("/Users/hufengling/git/Memorable/Data_Files/daily_questions.txt", "r")
+    dailyQuestions = open(path + "Data_Files/daily_questions.txt", "r")
     for line in dailyQuestions:
         questionsString += line
     dailyQuestions.close()
