@@ -1,0 +1,40 @@
+@@*2019-6-10:Location:New York
+~~~
+@@*2019-6-10:Birthday:1997-03-23
+~~~
+@@*2019-6-11:Location:New York
+~~~
+@@*2019-6-11:Birthday:1997-03-23
+~~~
+@@*2019-6-11:Location:New York
+~~~
+@@*2019-6-11:Birthday:1997-03-23
+~~~
+@@*2019-6-11:Location:New York
+~~~
+@@*2019-6-11:Location:New York
+~~~
+@@*2019-6-11:Location:New York
+~~~
+@@*2019-6-11:Location:New York
+~~~
+@@*2019-6-11:Location:New York
+~~~
+@@*2019-6-11:Location:New York
+~~~
+@@*2019-6-11:Birthday:1997-03-23
+~~~
+@@*2019-6-11:Location:New York
+~~~
+@@*2019-6-11:Birthday:1997-03-23
+~~~
+@@*2019-6-11:Location:New York
+~~~
+@@*2019-6-11:Birthday:1997-03-23
+~~~
+@@*2019-6-11:Location:New York
+~~~
+@@*2019-6-11:Birthday:1997-03-23
+~~~
+@@*2019-6-11:Location:New York
+~~~

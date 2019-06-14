@@ -1,0 +1,6 @@
+Partner
+Location
+Birthday
+Interests
+Gift
+Goals

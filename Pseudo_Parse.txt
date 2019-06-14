@@ -1,0 +1,44 @@
+parse_today()
+    search lines for any "*"
+        if found
+            record the line
+    search lines for any "@"
+        if found
+            find_at_sign(line)
+    process_star_sign(recorded lines)
+
+find_at_sign(line)
+    find first @
+        process_at_sign(line, @index)
+        start in unsearch space
+        loop
+
+process_at_sign(line, index)
+    if @ is_keyword(line, index)
+        process_keyword(line, index)
+    else
+        process_profile(line, index)
+
+is_keyword(line, index)
+    find possible keyword
+    compare to keywords.txt
+    if match, return True
+    else, return False
+
+process_keyword(line, index)
+    take the keyphrase
+    split into keyword, name, and information
+    open profile for name
+    append (@@*Date:keyword:information\n~~~\n)
+
+process_profile(line, index)
+    take the name
+    open profile for name
+    append (@@@Date\nline\n~~~\n)
+
+process_star_sign(line indices)
+    read until first line index
+    read first line index and open the corresponding file
+    copy following lines until next line index
+    loop
+
