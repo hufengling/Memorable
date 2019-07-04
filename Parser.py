@@ -1,9 +1,11 @@
 import Inputter
 
+path = "/Users/apotharazu/Documents/GitHub/Memorable/"
+
 # parses information from today.txt
 def parse_today():
     dq_line_indices = []
-    today = open("/Users/hufengling/git/Memorable/Data_Files/today.txt", "r")
+    today = open(path + "Data_Files/today.txt", "r")
     today.readline() # read the "date" line in order to skip it in following loop so we don't have to analyze it
 
     # iterate through lines to count "*" and "@"
@@ -23,7 +25,7 @@ def parse_today():
 
 # check number of lines in file
 def lines_in_file(fileName):
-    today = open("/Users/hufengling/git/Memorable/" + fileName, "r")
+    today = open(path + fileName, "r")
     totalLines = today.readlines().__len__()
     today.close()
     return totalLines
@@ -69,7 +71,7 @@ def is_keyword(line, index):
     if possibleKeyword == "":
         return False
 
-    keywords = open("/Users/hufengling/git/Memorable/Data_Files/keywords.txt", "r")
+    keywords = open(path + "Data_Files/keywords.txt", "r")
 
     # check if possibleKeyword is in keywords.txt. If yes, then return it, if not, it is not a keyword
     for keyword in keywords:
@@ -98,7 +100,7 @@ def process_keyword(line, index):
     splitKeyPhrase = keyPhrase.split(":")
     currentDate = Inputter.get_date()
 
-    profile = open("/Users/hufengling/git/Memorable/Profiles/" + splitKeyPhrase[1] + ".txt", "a")
+    profile = open(path + "Profiles/" + splitKeyPhrase[1] + ".txt", "a")
     profile.write("@@*" + currentDate + ":" + splitKeyPhrase[0] + ":" + splitKeyPhrase[2])
     profile.write("\n~~~\n")
     profile.close()
@@ -113,12 +115,12 @@ def process_profile(line, index):
 def write_to_temp_profile(line, index):
     line = line.replace("\n", "")
     friendName = line[index:].split(" ")[0]
-    profile = open("/Users/hufengling/git/Memorable/temp_files/" + friendName + ".txt", "a")
+    profile = open(paht + "temp_files/" + friendName + ".txt", "a")
     profile.write(line)
     profile.write("\n")
     profile.close()
 
-    temp_friends_list = open("/Users/hufengling/git/Memorable/temp_files/temp_friends_list.txt", "a")
+    temp_friends_list = open(path + "temp_files/temp_friends_list.txt", "a")
     temp_friends_list.write(friendName)
     temp_friends_list.close()
 
@@ -126,7 +128,7 @@ def write_to_temp_profile(line, index):
 def process_star_sign(dq_line_indices):
     dq_line_indices += [lines_in_file("Data_Files/today.txt") - 2] # adds final line to indices
 
-    today = open("/Users/hufengling/git/Memorable/Data_Files/today.txt", "r")
+    today = open(path + "Data_Files/today.txt", "r")
     currentDate = today.readline()
 
     # prevents bug if there is are random spaces between date and first question
@@ -138,7 +140,7 @@ def process_star_sign(dq_line_indices):
         # read "*" line and open/create the correct file
         questionLine = today.readline()
         questionLine = reformat_question(questionLine)
-        dq = open("/Users/hufengling/git/Memorable/Daily_Questions/" + questionLine, "a")
+        dq = open(path + "Daily_Questions/" + questionLine, "a")
 
         # append date
         dq.write(currentDate)
