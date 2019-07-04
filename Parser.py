@@ -115,7 +115,7 @@ def process_profile(line, index):
 def write_to_temp_profile(line, index):
     line = line.replace("\n", "")
     friendName = line[index:].split(" ")[0]
-    profile = open(paht + "temp_files/" + friendName + ".txt", "a")
+    profile = open(path + "temp_files/" + friendName + ".txt", "a")
     profile.write(line)
     profile.write("\n")
     profile.close()
